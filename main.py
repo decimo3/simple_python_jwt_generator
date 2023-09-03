@@ -51,9 +51,6 @@ class jwt_bot_token_generator:
         if (len(missing_arguments) > 0):
             missing_arguments_string = ", ".join(str(miss) for miss in missing_arguments)
             raise Exception(f"The following argument(s) are not optional and have not been entered: {missing_arguments_string}.")
-        else:
-            consolidated_arguments_string = f"{{secret_key: {self.secret_key}, adm-id: {self.adm_id_bot}, allowed_pc: {self.allowed_pc}, exp_date: {self.exp_date}}}"
-            print(f" {consolidated_arguments_string}.")
 
     def generate_token(self) -> str:
         claims = {
